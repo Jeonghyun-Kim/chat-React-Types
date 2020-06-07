@@ -9,10 +9,11 @@ import AuthContext from '../../AuthContext';
 import { KEYS, SERVER_URL } from '../../defines';
 
 export default () => {
-  const [name, setName] = React.useState<string>('');
   const [isLoading, setLoading] = React.useState<boolean>(false);
 
-  const { setError, isLoggedIn, setLoggedIn } = React.useContext(AuthContext);
+  const {
+    name, setName, setError, isLoggedIn, setLoggedIn,
+  } = React.useContext(AuthContext);
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -30,8 +31,8 @@ export default () => {
           setTimeout(() => setError(null), 3000);
         } else {
           setName(json.name);
-          sessionStorage.setItem(KEYS.accessToken, json.key);
-          sessionStorage.setItem(KEYS.name, json.name);
+          localStorage.setItem(KEYS.accessToken, json.key);
+          localStorage.setItem(KEYS.name, json.name);
           setLoggedIn(true);
         }
       })
@@ -44,7 +45,7 @@ export default () => {
 
   const handleLogout = () => {
     setName('');
-    sessionStorage.clear();
+    localStorage.clear();
     setLoggedIn(false);
   };
 

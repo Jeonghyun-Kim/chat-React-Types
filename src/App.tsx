@@ -10,22 +10,24 @@ import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 
 export default function App() {
+  const [name, setName] = React.useState<string>('');
   const [isLoggedIn, setLoggedIn] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    const achievedToken = sessionStorage.getItem(KEYS.accessToken);
-    const achievedName = sessionStorage.getItem(KEYS.name);
+    const achievedToken = localStorage.getItem(KEYS.accessToken);
+    const achievedName = localStorage.getItem(KEYS.name);
 
     if (achievedToken && achievedName) {
       setLoggedIn(true);
+      setName(achievedName);
     }
   }, []);
 
   return (
     <div className="App">
       <AuthContext.Provider value={{
-        isLoggedIn, setLoggedIn, error, setError,
+        isLoggedIn, setLoggedIn, error, setError, name, setName,
       }}
       >
         <Header />

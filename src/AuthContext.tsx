@@ -5,6 +5,8 @@ interface MyAuth {
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   error: string | null;
   setError: React.Dispatch<React.SetStateAction<string | null>>;
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const defaultAuthContext: MyAuth = {
@@ -12,6 +14,8 @@ export const defaultAuthContext: MyAuth = {
   setLoggedIn: () => {},
   error: null,
   setError: () => {},
+  name: '',
+  setName: () => {},
 };
 
 export default React.createContext(defaultAuthContext);
