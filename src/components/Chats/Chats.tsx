@@ -58,11 +58,8 @@ export default function Chats() {
   React.useEffect(() => {
     if (roomId) {
       fetchData();
-      setInterval(() => fetchData(), 3000);
     }
-
-    return clearInterval();
-  }, [roomId, setError, fetchData]);
+  }, [roomId, fetchData]);
 
   const handleSend = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -90,7 +87,7 @@ export default function Chats() {
       <Grid container item direction="column" xs>
         {roomId
           ? (
-            <div id="chatList" style={{ height: `${window.innerHeight - 136}px` }}>
+            <div id="chatList" style={{ height: `${window.innerHeight - 154}px` }}>
               {isLoading
                 ? (
                   <>

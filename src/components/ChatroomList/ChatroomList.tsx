@@ -76,7 +76,7 @@ export default function ChatroomList() {
           <>
             <Typography variant="h5" align="center">채팅방 목록</Typography>
             <div className="spacer" />
-            <Grid container spacing={2}>
+            <Grid container spacing={2} id="createBox">
               <Grid item xs>
                 <TextField
                   variant="outlined"

@@ -1,5 +1,6 @@
 #motherGrid {
-  height: calc(100% - 90px);
+  height: calc(100% - 100px);
+  margin-top: 10px;
 }
 
 .root {
@@ -9,4 +10,8 @@
 
 .halfGrid {
   padding: 0 20px;
+}
+
+#chatroomListBox {
+  margin-top: 10px;
 }

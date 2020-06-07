@@ -41,7 +41,7 @@ export default function App() {
         <Grid container id="motherGrid">
           <Grid container item direction="column" justify="space-around" xs={12} sm={6} className="halfGrid">
             <Login />
-            <Grid item>
+            <Grid item id="chatroomListBox">
               <ChatroomList />
             </Grid>
           </Grid>

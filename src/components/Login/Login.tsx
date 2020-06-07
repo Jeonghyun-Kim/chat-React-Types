@@ -56,7 +56,7 @@ export default function Login() {
         ? (
           <div className="center">
             <Grid item xs>
-              <Typography variant="h4" align="center">{name}님 환영합니다.</Typography>
+              <Typography variant="h5" align="center">{name}님 환영합니다.</Typography>
             </Grid>
             <Grid item xs id="logoutButton">
               <Button variant="contained" onClick={handleLogout}>로그아웃</Button>
