@@ -1,3 +1,27 @@
 .fullHeight {
   height: 100%;
 }
+
+#chatList {
+  overflow: auto;
+}
+
+.chatListItem {
+  display: block;
+  padding: 10px 0;
+}
+
+.content {
+  padding: 0 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+#sendButton {
+  height: 100%;
+}
+
+.my {
+  float: right;
+}

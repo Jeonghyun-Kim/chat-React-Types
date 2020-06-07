@@ -75,20 +75,23 @@ export default function ChatroomList() {
         ? (
           <>
             <Typography variant="h5" align="center">채팅방 목록</Typography>
+            <div className="spacer" />
             <Grid container spacing={2}>
               <Grid item xs>
                 <TextField
                   variant="outlined"
                   placeholder="채팅방 이름"
                   label="이름"
+                  fullWidth
                   value={chatroomName}
                   onChange={(e) => setChatroomName(e.target.value)}
                 />
               </Grid>
               <Grid item>
-                <Button variant="contained" onClick={handleCreateChatroom}>방 만들기</Button>
+                <Button variant="contained" onClick={handleCreateChatroom} id="createButton">방 만들기</Button>
               </Grid>
             </Grid>
+            <div className="spacer" />
             {rooms.map((room) => (
               <ChatroomItem
                 room={room}
@@ -99,7 +102,7 @@ export default function ChatroomList() {
             ))}
           </>
         ) : (
-          <Typography variant="h5">로그인을 먼저 해주세요!</Typography>
+          <Typography variant="h5" align="center">로그인을 먼저 해주세요!</Typography>
         )}
     </>
   );

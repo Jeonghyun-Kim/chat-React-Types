@@ -51,12 +51,12 @@ export default function Login() {
   };
 
   return (
-    <Grid container item direction="column" spacing={2} className="login">
+    <Grid container item direction="column" className="login">
       {isLoggedIn
         ? (
           <div className="center">
             <Grid item xs>
-              <Typography className="text-center">{name}님 환영합니다.</Typography>
+              <Typography variant="h4" align="center">{name}님 환영합니다.</Typography>
             </Grid>
             <Grid item xs id="logoutButton">
               <Button variant="contained" onClick={handleLogout}>로그아웃</Button>
@@ -67,7 +67,7 @@ export default function Login() {
             {isLoading
               ? (
                 <Grid item>
-                  <Typography variant="h5" className="text-center">Loading...</Typography>
+                  <Typography variant="h5" align="center">Loading...</Typography>
                 </Grid>
               ) : (
                 <form>
