@@ -37,9 +37,10 @@ const ChatroomItem = ({ room, roomId, setRoomId }: {
 export default function ChatroomList() {
   const [rooms, setRooms] = React.useState<Room[]>([]);
   const [chatroomName, setChatroomName] = React.useState<string>('');
-  const [error, setError] = React.useState<string | null>(null);
 
-  const { isLoggedIn, roomId, setRoomId } = React.useContext(AuthContext);
+  const {
+    isLoggedIn, roomId, setError, setRoomId,
+  } = React.useContext(AuthContext);
 
   const fetchData = () => {
     fetch(`${SERVER_URL}/rooms`)
@@ -50,7 +51,7 @@ export default function ChatroomList() {
 
   React.useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   const handleCreateChatroom = () => {
     fetch(`${SERVER_URL}/rooms`, {
@@ -88,21 +89,14 @@ export default function ChatroomList() {
                 <Button variant="contained" onClick={handleCreateChatroom}>방 만들기</Button>
               </Grid>
             </Grid>
-            {error
-              ? (
-                <Typography variant="h5">{error}</Typography>
-              ) : (
-                <>
-                  {rooms.map((room) => (
-                    <ChatroomItem
-                      room={room}
-                      roomId={roomId}
-                      setRoomId={setRoomId}
-                      key={room._id}
-                    />
-                  ))}
-                </>
-              )}
+            {rooms.map((room) => (
+              <ChatroomItem
+                room={room}
+                roomId={roomId}
+                setRoomId={setRoomId}
+                key={room._id}
+              />
+            ))}
           </>
         ) : (
           <Typography variant="h5">로그인을 먼저 해주세요!</Typography>

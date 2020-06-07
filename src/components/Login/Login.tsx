@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 import './Login.scss';
 
@@ -50,26 +51,41 @@ export default function Login() {
   };
 
   return (
-    <div className="login">
+    <Grid container item direction="column" spacing={2} className="login">
       {isLoggedIn
         ? (
-          <>
-            <Typography>{name}님 환영합니다.</Typography>
-            <Button variant="contained" onClick={handleLogout}>로그아웃</Button>
-          </>
+          <div className="center">
+            <Grid item xs>
+              <Typography className="text-center">{name}님 환영합니다.</Typography>
+            </Grid>
+            <Grid item xs id="logoutButton">
+              <Button variant="contained" onClick={handleLogout}>로그아웃</Button>
+            </Grid>
+          </div>
         ) : (
-          <>
+          <div className="center">
             {isLoading
               ? (
-                <Typography variant="h5">Loading...</Typography>
+                <Grid item>
+                  <Typography variant="h5" className="text-center">Loading...</Typography>
+                </Grid>
               ) : (
                 <form>
-                  <TextField variant="outlined" onChange={(e) => setName(e.target.value)} />
-                  <Button variant="contained" onClick={handleSubmit} type="submit">로그인</Button>
+                  <Grid item id="idInput">
+                    <TextField
+                      label="이름"
+                      placeholder="아이디를 입력하세요."
+                      variant="outlined"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </Grid>
+                  <Grid item id="loginButton">
+                    <Button variant="contained" onClick={handleSubmit} type="submit">로그인</Button>
+                  </Grid>
                 </form>
               )}
-          </>
+          </div>
         )}
-    </div>
+    </Grid>
   );
 }
