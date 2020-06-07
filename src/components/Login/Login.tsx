@@ -8,7 +8,7 @@ import './Login.scss';
 import AuthContext from '../../AuthContext';
 import { KEYS, SERVER_URL } from '../../defines';
 
-export default () => {
+export default function Login() {
   const [isLoading, setLoading] = React.useState<boolean>(false);
 
   const {
@@ -18,7 +18,7 @@ export default () => {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     setLoading(true);
-    fetch(`${SERVER_URL}login`, {
+    fetch(`${SERVER_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -72,4 +72,4 @@ export default () => {
         )}
     </div>
   );
-};
+}

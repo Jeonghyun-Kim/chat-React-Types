@@ -3,4 +3,4 @@ export const KEYS = {
   name: '@KEY_FOR_NAME',
 };
 
-export const SERVER_URL = 'https://snu-chat2.herokuapp.com/';
+export const SERVER_URL = 'https://snu-chat2.herokuapp.com';

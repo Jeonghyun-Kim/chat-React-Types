@@ -7,6 +7,8 @@ interface MyAuth {
   setError: React.Dispatch<React.SetStateAction<string | null>>;
   name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
+  roomId: string | null;
+  setRoomId: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export const defaultAuthContext: MyAuth = {
@@ -16,6 +18,8 @@ export const defaultAuthContext: MyAuth = {
   setError: () => {},
   name: '',
   setName: () => {},
+  roomId: null,
+  setRoomId: () => {},
 };
 
 export default React.createContext(defaultAuthContext);
